@@ -1,18 +1,18 @@
-// src/components/Button/Button.tsx
+// src/components/Button.tsx
 import React from "react";
 
 interface ButtonProps {
-  onClick: () => void;
-  label: string;
+  onButtonClick: () => void;
+  buttonText?: string; // Make buttonText optional
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, label }) => {
+const Button: React.FC<ButtonProps> = ({
+  onButtonClick,
+  buttonText = "Open Form",
+}) => {
   return (
-    <button
-      onClick={onClick}
-      className="bg-blue-500 text-white px-4 py-2 rounded"
-    >
-      {label}
+    <button className="btn" onClick={onButtonClick}>
+      {buttonText}
     </button>
   );
 };

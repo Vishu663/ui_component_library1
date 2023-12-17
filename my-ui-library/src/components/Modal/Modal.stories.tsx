@@ -1,28 +1,35 @@
-import { useState } from "react";
+// src/components/Modal/Modal.stories.tsx
+import { Meta, Story } from "@storybook/react";
 import Modal from "./Modal";
 
 export default {
-  title: "Modal",
+  title: "Components/Modal",
   component: Modal,
+} as Meta;
+
+const Template: Story = (args) => (
+  <Modal
+    onClose={function (): void {
+      throw new Error("Function not implemented.");
+    }}
+    {...args}
+  />
+);
+
+export const Default = Template.bind({});
+Default.args = {
+  onClose: () => console.log("Modal closed"),
 };
 
-export const Default = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
+export const WithPrivacyPolicyContent = Template.bind({});
+WithPrivacyPolicyContent.args = {
+  onClose: () => console.log("Modal closed"),
+  // You can customize the content for testing purposes
+  children: (
     <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-      >
-        Open Modal
-      </button>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div>
-          <h2 className="text-lg font-semibold mb-2">Modal Content</h2>
-          <p>This is the content of the modal.</p>
-        </div>
-      </Modal>
+      <h2>Privacy Policy</h2>
+      <p>This is the privacy policy content for testing purposes.</p>
+      <button onClick={() => console.log("Close button clicked")}>Close</button>
     </>
-  );
+  ),
 };

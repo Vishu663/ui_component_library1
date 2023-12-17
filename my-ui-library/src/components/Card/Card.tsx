@@ -1,16 +1,20 @@
-// src/components/Card/Card.tsx
+// src/components/Card.tsx
 import React from "react";
 
 interface CardProps {
+  imageSrc: string;
   title: string;
-  content: React.ReactNode;
+  description: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, content }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, title, description }) => {
   return (
-    <div className="bg-white p-4 shadow-md rounded-md">
-      <h2 className="text-lg font-semibold mb-2">{title}</h2>
-      <div>{content}</div>
+    <div className="card">
+      <img src={imageSrc} alt={title} />
+      <div className="card-content">
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };

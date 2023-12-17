@@ -1,28 +1,63 @@
-// src/components/Form/Form.tsx
-import React from "react";
+// src/components/Form.tsx
+import React, { useState } from "react";
 
-interface FormProps {
-  onSubmit: (data: any) => void;
-}
+const Form: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-const Form: React.FC<FormProps> = ({ onSubmit }) => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Gather form data and call onSubmit
-    onSubmit(() => {
-      console.log("Submitted!");
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Add your form submission logic here
+    console.log("Form submitted:", formData);
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-4 shadow-md rounded-md">
-      <input type="text" placeholder="Enter you name" />
-      <input type="email" placeholder="Enter you email" />
-      <input type="password" placeholder="Enter you password" />
-      <button
-        type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-      >
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        placeholder="Enter Your Name"
+        required
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Enter Your Email"
+        required
+      />
+
+      <label htmlFor="message">Message:</label>
+      <textarea
+        id="message"
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        placeholder="Enter Your Message Here"
+        required
+      ></textarea>
+
+      <button type="submit" className="btn">
         Submit
       </button>
     </form>

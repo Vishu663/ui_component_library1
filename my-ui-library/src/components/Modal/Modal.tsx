@@ -1,22 +1,19 @@
 // src/components/Modal/Modal.tsx
 import React from "react";
+import "./Modal.css"; // Import a separate CSS file for styling
 
 interface ModalProps {
-  isOpen: boolean;
   onClose: () => void;
-  children?: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
-
+const Modal: React.FC<ModalProps> = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-4 shadow-md rounded-md">
-        {children}
-        <button onClick={onClose} className="text-red-500 mt-4 cursor-pointer">
-          Close
-        </button>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <h2>Privacy Policy</h2>
+        {/* Add your privacy policy content here */}
+        <p>This is the privacy policy content.</p>
+        <button onClick={onClose}>Close</button>
       </div>
     </div>
   );
