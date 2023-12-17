@@ -6,7 +6,7 @@ My UI Component Library is a collection of reusable React components built with 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- Documentation(#documentation)
+- [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
 
