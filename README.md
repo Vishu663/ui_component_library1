@@ -6,6 +6,7 @@ My UI Component Library is a collection of reusable React components built with 
 
 - [Installation](#installation)
 - [Usage](#usage)
+- Documentation(#documentation)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -19,6 +20,10 @@ npm install my-ui-library
 ## Usage
 
 You can see the usage in app.tsx file
+
+## Documentation
+
+I have implemented a front-end application that includes a Navbar, Card components for showcasing TypeScript and JavaScript information, a Button component, and a Form component. Additionally, I have integrated a Modal component at the end of the Form, featuring a privacy policy. The modal opens over the entire page with a blurred background for an enhanced user experience.
 
 ## Contributing
 
