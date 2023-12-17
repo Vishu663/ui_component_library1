@@ -16,6 +16,14 @@ To install the library, you can use npm:
 ```bash
 npm install my-ui-library
 ```
+To see the components in storybook:
+```bash
+npm run storybook
+```
+To run the code you can use:
+```bash
+npm run dev
+```
 
 ## Usage
 
